@@ -1,0 +1,45 @@
+XBEE CONFIGURATION:
+
+CH
+12 (fallbacks C)
+
+PAN
+BEEF
+
+DH
+DDEEAADD
+
+DL
+BBEEEEFF
+
+MY
+AAAA/BBBB
+
+SH
+13A200/13A200
+
+SL
+40C78A9F/40C78A84
+
+Coordinator enable:
+Coordinator/End
+
+End Assoc
+0000b
+
+Coord aasoc
+000b
+
+AES
+Enable
+
+AES KEY (64 bytes):
+52d66cff73d18ee1e7959867257f4c88
+
+
+Node identifier
+SERVER/CLIENT
+
+Api
+Enabled
+

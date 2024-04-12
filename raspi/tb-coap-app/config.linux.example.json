@@ -1,0 +1,29 @@
+{
+	"serial": {
+		"port": "/dev/ttyACM0",
+		"baud": 9600,
+		"parity": "none",
+		"stopBit": "1",
+		"dataBits": 8
+	},
+	"queueSize": 128,
+	"bufSize": 32,
+	"bitSize": 32,
+	"sensors": [
+		{
+			"serial": "UNO123",
+			"triggerTimeout": 3000,
+			"index": 0
+		},
+		{
+			"serial": "UNO456",
+			"triggerTimeout": 3000,
+			"index": 1
+		}
+	],
+	"server": {
+		"host": "coap://server.com:5683",
+		"accessToken": "abcdefghi1234567890",
+		"protocol": "coap"
+	}
+}

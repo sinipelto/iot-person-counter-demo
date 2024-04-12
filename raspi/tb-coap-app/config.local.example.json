@@ -1,0 +1,29 @@
+{
+	"serial": {
+		"port": "COM1",
+		"baud": 9600,
+		"parity": "none",
+		"stopBit": "1",
+		"dataBits": 8
+	},
+	"queueSize": 128,
+	"bufSize": 24,
+	"bitSize": 32,
+	"sensors": [
+		{
+			"serial": "WIN3201",
+			"triggerTimeout": 2000,
+			"index": 1
+		},
+		{
+			"serial": "WIN3202",
+			"triggerTimeout": 2000,
+			"index": 0
+		}
+	],
+	"server": {
+		"host": "mqtt://server.com:123",
+		"accessToken": "abcdefghi1234567890",
+		"protocol": "mqtt"
+	}
+}
