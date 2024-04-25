@@ -1,4 +1,4 @@
-module tb-coap-app
+module edge-app
 
 go 1.21.5
 
