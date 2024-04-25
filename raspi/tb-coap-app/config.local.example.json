@@ -22,8 +22,8 @@
 		}
 	],
 	"server": {
-		"host": "mqtt://server.com:123",
+		"host": "mqtts://server.com:123",
 		"accessToken": "abcdefghi1234567890",
-		"protocol": "mqtt"
+		"protocol": "mqtts"
 	}
 }

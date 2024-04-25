@@ -26,7 +26,6 @@ type Serial struct {
 }
 
 type Server struct {
-	Host        *string `json:"host"`
-	Protocol    *string `json:"protocol"`
+	Url         *string `json:"url"`
 	AccessToken *string `json:"accessToken"`
 }

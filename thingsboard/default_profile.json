@@ -1,0 +1,35 @@
+{
+  "name": "Default Profile",
+  "description": "Default device profile",
+  "image": null,
+  "type": "DEFAULT",
+  "transportType": "DEFAULT",
+  "provisionType": "ALLOW_CREATE_NEW_DEVICES",
+  "defaultRuleChainId": {
+    "entityType": "RULE_CHAIN",
+    "id": "9b1c3a00-e083-11ee-ad7f-2712b7eb4edd"
+  },
+  "defaultDashboardId": {
+    "entityType": "DASHBOARD",
+    "id": "a6894430-f67e-11ee-bdad-15e691a9cac0"
+  },
+  "defaultQueueName": "SequentialByOriginator",
+  "profileData": {
+    "configuration": {
+      "type": "DEFAULT"
+    },
+    "transportConfiguration": {
+      "type": "DEFAULT"
+    },
+    "provisionConfiguration": {
+      "type": "ALLOW_CREATE_NEW_DEVICES",
+      "provisionDeviceSecret": "f9tvq1uuxynek9t7ls20"
+    },
+    "alarms": null
+  },
+  "provisionDeviceKey": "jiu17ayioo29i96sfg4m",
+  "firmwareId": null,
+  "softwareId": null,
+  "defaultEdgeRuleChainId": null,
+  "default": false
+}

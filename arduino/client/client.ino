@@ -18,12 +18,12 @@ char dser[LEN_SERIAL] = { 'U', 'N', 'O', '4', '5', '6', 0 };
 #define SPEED 9600
 
 // in ms (uint16_t)
-#define SLEEP 150000
+#define SLEEP 300000
 
 // Start timeouts
 #define TIMEOUT 300
 
-#define SHORT_DELAY 10
+#define SHORT_DELAY 5
 
 #define RESP_TMOUT_LOW 5000
 
@@ -48,7 +48,7 @@ char dser[LEN_SERIAL] = { 'U', 'N', 'O', '4', '5', '6', 0 };
 // #define ADDR_LOW 0xAAAA
 
 // Buffer size for message string and xbee message
-#define BUFS 32
+#define BUFS 40
 
 // NOTE! Cant print 64bit directly with sprintf
 // Figure out how to print uint64
@@ -138,10 +138,10 @@ void sendX64Req(uint8_t len) {
 void sendXbee(const char *msg) {
   int len = strlen(msg);
 
-  if (len > BUFS) {
-    Serial.println("ERROR: Buffer overflow. Truncating length to buffer size.");
-    len = BUFS;
-  }
+  // if (len > BUFS) {
+  //   Serial.println("ERROR: Buffer overflow. Truncating length to buffer size.");
+  //   len = BUFS;
+  // }
 
   // Convert char[] to uint8_t[]
   for (int i = 0; i < len; i++) {
@@ -155,7 +155,8 @@ void sendXbee(const char *msg) {
   sendX64Req(len);
 
   // Optionally report status errors
-  handleStatusResp();
+  // Note performance effect!
+  // handleStatusResp();
 }
 
 void ping() {
@@ -224,7 +225,8 @@ void loop() {
     motion();
     // Sleep until the signal resets back to zero
     // so we dont re-send a message on the same signal
-    while (digitalRead(PIR)) { delay(SHORT_DELAY); }
+    // while (digitalRead(PIR)) { delay(SHORT_DELAY); }
+    delay(3500);
   } else {
     // Send ping packet periodically
     // so we can determine if the Arduino is still alive

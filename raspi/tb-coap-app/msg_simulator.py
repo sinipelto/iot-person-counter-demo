@@ -1,5 +1,6 @@
 import random
 import threading
+from serial import *
 import serial
 import time
 
@@ -34,7 +35,7 @@ def ping(x):
     rng.shuffle(ths)
     for t in ths:
         t.start()
-    time.sleep(randFloat(10,20))
+    time.sleep(randFloat(8,20))
     for t in ths:
         t.join(3)
 
@@ -62,24 +63,25 @@ try:
         print()
 
         i = 0
+        j = 0
         
-        for x in range(100):
-            for y in range(i, i+2):
-                ping(i)
-                i = y
+        for x in range(500):
+            for j in range(i, i+2):
+                ping(j)
+                i = j
 
             for y in range(6):
                 rng.shuffle(msgs)
                 print("0:")
                 msg(msgs[0])
-                time.sleep(randFloat(0.4, 5))
+                time.sleep(randFloat(0.1, 5))
                 print("1:")
                 msg(msgs[1])
                 time.sleep(randFloat(3,8))
 
             for y in range(i, i+2):
-                ping(i)
-                i = y
+                ping(j)
+                i = j
 
 except KeyboardInterrupt:
     print("Interrupted.")

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"io"
 	"math"
+	"net/url"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -114,16 +115,17 @@ func ParseConfig(fn string) *base.Config {
 		panic("ERR_CFG_QSIZE_OOR")
 	}
 
-	if strings.TrimSpace(*raw.Server.Host) == "" {
-		panic("ERR_CFG_EMPTY_SRV_HOST")
+	if strings.TrimSpace(*raw.Server.Url) == "" {
+		panic("ERR_CFG_EMPTY_SRV_URL")
 	}
 
 	if strings.TrimSpace(*raw.Server.AccessToken) == "" {
 		panic("ERR_CFG_EMPTY_SRV_ACC_TOK")
 	}
 
-	if strings.TrimSpace(*raw.Server.Protocol) == "" {
-		panic("ERR_CFG_EMPTY_SRV_PROTO")
+	surl, err := url.Parse(*raw.Server.Url)
+	if err != nil {
+		panic("ERR_CANT_PARSE_SRV_URL")
 	}
 
 	cfg := &base.Config{
@@ -136,9 +138,9 @@ func ParseConfig(fn string) *base.Config {
 		BitSize:   uint8(*raw.BitSize),
 		QueueSize: uint8(*raw.QueueSize),
 		Server: &base.Server{
-			Host:        *raw.Server.Host,
+			Url:         surl,
 			AccessToken: *raw.Server.AccessToken,
-			Protocol:    base.GetProtocol(*raw.Server.Protocol),
+			Protocol:    base.GetProtocol(surl.Scheme),
 		},
 	}
 

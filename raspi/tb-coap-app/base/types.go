@@ -1,6 +1,7 @@
 package base
 
 import (
+	"net/url"
 	"strings"
 	"time"
 
@@ -26,8 +27,10 @@ func (p Protocol) String() string {
 }
 
 var StrToProtocol = map[string]Protocol{
-	"mqtt": Mqtt,
-	"coap": Coap,
+	"mqtt":  Mqtt,
+	"mqtts": Mqtt,
+	"coap":  Coap,
+	"coaps": Coap,
 }
 
 func GetProtocol(s string) Protocol {
@@ -56,7 +59,7 @@ type SensorConfig struct {
 }
 
 type Server struct {
-	Host        string
+	Url         *url.URL
 	AccessToken string
 	Protocol    Protocol
 }
@@ -97,7 +100,7 @@ type MotionPacket struct {
 // 	Delta int8       `json:"delta"`
 // }
 
-type PersonDeltaTelementry struct {
+type PersonDeltaTelemetry struct {
 	Ts     int64                     `json:"ts"`
 	Values *PersonDeltaPacketWrapper `json:"values"`
 }

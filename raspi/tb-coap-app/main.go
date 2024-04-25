@@ -147,12 +147,6 @@ MainLoop:
 		case chunk := <-dataQ:
 			// fmt.Println("Got read.")
 
-			// len read > 0
-			// if n <= 0 {
-			// 	fmt.Println("No data received.")
-			// 	continue
-			// }
-
 			// collect input byte[] => string
 			// Keep track of buffered input from sub-buffer
 			data += string(chunk.Buffer[:chunk.Length])
@@ -181,12 +175,9 @@ MainLoop:
 				data = af
 			}
 		case <-interrupt:
-			// fmt.Println("Got interrupt.")
+			fmt.Println("Got interrupt.")
 			break MainLoop
 		}
-
-		// data = ""
-		// nt = 0
 	}
 
 	// Wait for all calls to finish

@@ -15,7 +15,7 @@ ssh ${thost} -C "sudo service myapp stop"
 
 #ssh ${thost} -C "rm -rf ~/app && mkdir ~/app"
 
-scp .\linux.app ${thost}:~/app/app
+scp .\linux ${thost}:~/app/app
 if (!$?)
 {
 	Write-Host -ForegroundColor red "ERROR: scp bin"

@@ -1,7 +1,4 @@
-::cd ".\arduino"
-
 set bd=build\arduino.avr.uno
-
 set srv1=raspitf
 set srv2=raspit
 
